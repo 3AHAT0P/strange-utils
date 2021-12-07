@@ -1,36 +1,39 @@
-// @TODO:
+import { pipe, asyncPipe } from '@strange-utils/pipe';
 
-let p!: Pipe.Pipe;
-let p2!: AsyncPipe.AsyncPipe;
-
-const n = p(
+// Correct example
+const n = pipe(
   () => 1,
   (x: number) => Number(x),
   (x: number) => ({ x }),
   () => ({ x: 1 }),
 );
-const y = n();
+const y: { x: number; } = n();
+console.log(y);
 
-const n2 = p(
-  (x: string) => x + 1,
-  (x: number) => Number(x),
-  (x: number) => ({ x }),
-  () => ({ x: 1 }),
-);
-const y2 = n2();
+// const n2 = pipe(
+//   (x: string) => x + 1, // <-- TypeError on this line
+//   (x: number) => Number(x),
+//   (x: number) => ({ x }),
+//   () => ({ x: 1 }),
+// );
+// const y2: { x: number; } = n2('A');
+// console.log(y2);
 
-const n3 = p2(
+// Correct example
+const n3 = asyncPipe(
   async () => 1,
-  async(x) => Number(x),
-  async(x: number) => ({ x }),
-  async() => ({ x: 1 }),
+  async (x) => Number(x),
+  async (x: number) => ({ x }),
+  async () => ({ x: 1 }),
 );
-const y3 = n3();
+const y3: Promise<{ x: number; }> = n3();
+console.log(y3);
 
-const n4 = p2(
-  async(x: string) => x + 1,
-  async(x: number) => Number(x),
-  async(x: number) => ({ x }),
-  async() => ({ x: 1 }),
-);
-const y4 = n4();
+// const n4 = asyncPipe(
+//   async (x: string) => x + 1, // <-- TypeError on this line
+//   async (x: number) => Number(x),
+//   async (x: number) => ({ x }),
+//   async () => ({ x: 1 }),
+// );
+// const y4: Promise<{ x: number; }> = n4('A');
+// console.log(y4);

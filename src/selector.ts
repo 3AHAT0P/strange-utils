@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface Selector<TArgument = any, TReturn = void> {
   (value: TArgument): TReturn;
   when: {
@@ -40,19 +41,19 @@ export const createSelector = <TArgument = any, TReturn = void>(): Selector<TArg
   const isEqualFn = (caseValue: TArgument) => {
     currentConditionFn = (value) => value === caseValue;
     return { do: doFn };
-  }
+  };
 
   const whenFn = (conditionFn: ConditionFn) => {
     currentConditionFn = conditionFn;
     return { do: doFn };
-  }
+  };
 
   whenFn.isEqual = isEqualFn;
 
   const fallbackFn = (runnerFn: RunnerFn) => {
-    cases.push([null, runnerFn])
+    cases.push([null, runnerFn]);
     return selector;
-  }
+  };
 
   // fill up selector operations 
   selector.when = whenFn;

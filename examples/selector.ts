@@ -1,6 +1,8 @@
-import { createSelector } from '../src/selector';
+import { createSelector } from '@/selector';
 
-const checkStringHaveOnlyHAndILetters = (value) => value.trim().split('').every((letter) => letter === 'H' || letter === 'I');
+const checkStringHaveOnlyHAndILetters = (value: string) => (
+  value.trim().split('').every((letter: string) => letter === 'H' || letter === 'I')
+);
 
 const selector = createSelector<string, string | number>()
   .when(value => value.length === 3).do(value => { console.log(value); return 1; })
