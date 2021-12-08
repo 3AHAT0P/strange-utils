@@ -1,6 +1,6 @@
 {
-  "name": "strange-utils",
-  "version": "1.1.0",
+  "name": "@3ahat0p/strange-utils",
+  "version": "1.2.0",
   "description": "",
   "main": "dist/index.js",
   "directories": {
@@ -15,6 +15,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/3AHAT0P/strange-utils.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   },
   "author": "Igor Kostyakov <i.a.kostyakov@gmail.com>",
   "maintainers": [
