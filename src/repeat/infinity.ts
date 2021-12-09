@@ -1,3 +1,5 @@
+import type { RunnerOptions, RunnerWithContextOptions } from './@types';
+
 export interface RepeatInfinity {
   run: (runnerFn: (options: RunnerOptions) => void) => void;
   withContext: <TContext>(context: TContext) => {

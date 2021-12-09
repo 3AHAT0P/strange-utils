@@ -1,3 +1,5 @@
+import type { RunnerOptions, RunnerWithContextOptions } from './@types';
+
 export interface RepeatTimes {
   (count: number): {
     run: (runnerFn: (options: RunnerOptions) => void) => void;

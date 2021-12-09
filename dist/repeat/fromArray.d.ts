@@ -1,3 +1,4 @@
+import type { RunnerWithValueOptions, RunnerWithValueAndContextOptions } from './@types';
 export interface RepeatFromArray {
     <TArrayItem>(array: TArrayItem[]): {
         run: (runnerFn: (options: RunnerWithValueOptions<TArrayItem>) => void) => void;
