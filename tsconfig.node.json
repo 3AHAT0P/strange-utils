@@ -8,8 +8,10 @@
         "./*"
       ]
     },
-    "outDir": "./dist",
-    "declarationDir": "./dist",
+    "outDir": "./dist-node",
+    "declarationDir": "./dist-node",
+    "module": "CommonJS",
+    "preserveValueImports": false,
   },
   "include": [
     "src/**/*"
